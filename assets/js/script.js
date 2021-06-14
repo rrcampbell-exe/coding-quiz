@@ -20,14 +20,22 @@ let startQuiz = function () {
     pageContentEl.remove();
 
     let questionOne = function () {
-        // create new div element
+        // create new div element, add id
         let pageContentEl = document.createElement("section");
+        pageContentEl.id = "page-content"
 
+        // // adding h3 to new section element
+        // let questionOneHeader = document.createElement("h3");
+        // questionOneHeader.id = "question-header"
+
+        // // adding question content to h3
+        // document.getElementById("question-header").innerHTML = "Is this a question?";
+        
+        // // add the header to the newly created section
+        // pageContentEl.appendChild(quesionOneHeader);
+        
         // adding content to new section element
         let questionOneContent = document.createTextNode("This is the content of the first question.");
-
-        // adding id to new section element
-        pageContentEl.id = "page-content"
 
         // add the text node to the newly created section
         pageContentEl.appendChild(questionOneContent);
@@ -35,6 +43,7 @@ let startQuiz = function () {
         // add the newly created element and its content to the DOM
         let questionOneSection = document.getElementById("page-content");
         document.body.insertBefore(pageContentEl, questionOneSection);
+
     };
     questionOne();
     pageContentEl.remove;
