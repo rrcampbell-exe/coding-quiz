@@ -12,109 +12,159 @@ let startTimer = function () {
     }
 };
 
+// function to deduct time when wrong answer chosen
+
 let wrongAnswer = function() {
     timerInitial -= 10;
 };
 
-// functions for individual questions
+// functions to start quiz
 
 let startQuiz = function () {
     let pageContentEl = document.getElementById("page-content");
     pageContentEl.remove();
-
-    let questions = function () {
-        // QUESTION ONE
-        // create new div element, add id
-        let pageContentEl = document.createElement("section");
-        pageContentEl.id = "page-content"
-        document.body.append(pageContentEl); 
-
-        // adding h3 to new section element
-        let questionOneHeader = document.createElement("h3");
-        questionOneHeader.id = "question-header"
-        questionOneHeader.textContent = "True or false: JavaScript and Java are the same thing."
-        pageContentEl.append(questionOneHeader);
-
-        // adding possible answers beneath question
-        let answerWrong = document.createElement("button");
-        answerWrong.className = "btn"
-        answerWrong.id = "answer-wrong"
-        answerWrong.textContent = "True"
-        pageContentEl.append(answerWrong);
-        
-        let answerCorrect = document.createElement("button");
-        answerCorrect.className = "btn"
-        answerCorrect.id = "answer-correct"
-        answerCorrect.textContent = "False"
-        pageContentEl.append(answerCorrect);
-        
-        // if correct answer chosen
-        answerCorrect.addEventListener("click", () => {
-            pageContentEl.remove;
-        });
-
-        // if incorrect answer chosen
-        answerWrong.addEventListener("click", () => {
-            wrongAnswer();
-            pageContentEl.remove;
-        });
-
-        // add the newly created element and its content to the DOM
-        let questionOneSection = document.getElementById("page-content");
-        document.body.insertBefore(pageContentEl, questionOneSection);
-        
-        // // QUESTION TWO
-        // // create new div element, add id
-        // let pageContentEl = document.createElement("section");
-        // pageContentEl.id = "page-content"
-        // document.body.append(pageContentEl); 
-    
-        // // adding h3 to new section element
-        // let questionTwoHeader = document.createElement("h3");
-        // questionTwoHeader.id = "question-header"
-        // questionTwoHeader.textContent = "Which of the following will iterate a function over the length of an array with arrayName?"
-        // pageContentEl.append(questionTwoHeader);
-    
-        // // adding possible answers beneath question
-        // let answerWrong = document.createElement("button");
-        // answerWrong.className = "btn"
-        // answerWrong.id = "answer-wrong"
-        // answerWrong.textContent = "True"
-        // pageContentEl.append(answerWrong);
-        
-        // let answerCorrect = document.createElement("button");
-        // answerCorrect.className = "btn"
-        // answerCorrect.id = "answer-correct"
-        // answerCorrect.textContent = "False"
-        // pageContentEl.append(answerCorrect);
-        
-        // // if correct answer chosen
-        // answerCorrect.addEventListener("click", alert("Correct!"));
-    
-        // // if incorrect answer chosen
-        // answerWrong.addEventListener("click", () => {
-        //     wrongAnswer();
-        //     // questionTwo();
-        // });
-    
-        // // add the newly created element and its content to the DOM
-        // let questionOneSection = document.getElementById("page-content");
-        // document.body.insertBefore(pageContentEl, questionOneSection);
-        
-    };
-    questions();
-    pageContentEl.remove;
-    // let questionTwo = function() {
-    //     alert("This is question two!");
-    // }
+    questionOne();
 };
 
-// write question to screen (addContent)
+// FUNCTIONS FOR INDIVIDUAL QUESTIONS
 
-// if else for answer selection
+// question one function
+let questionOne = function () {
+    // create new div element, add id
+    let questionOneContentEl = document.createElement("section");
+    questionOneContentEl.id = "question-one-content"
+    document.body.append(questionOneContentEl); 
 
-// if true, advance to next question
-// if false, subtract 10 seconds from timer, advance to next question (removeContent, addContent)
+    // adding h3 to new section element for T/F statement
+    let questionOneHeader = document.createElement("h3");
+    questionOneHeader.id = "question-header"
+    questionOneHeader.textContent = "True or false: JavaScript and Java are the same thing."
+    questionOneContentEl.append(questionOneHeader);
+
+    // adding possible answers beneath question
+    let answerWrong = document.createElement("button");
+    answerWrong.className = "btn"
+    answerWrong.id = "answer-wrong"
+    answerWrong.textContent = "True"
+    questionOneContentEl.append(answerWrong);
+    
+    let answerCorrect = document.createElement("button");
+    answerCorrect.className = "btn"
+    answerCorrect.id = "answer-correct"
+    answerCorrect.textContent = "False"
+    questionOneContentEl.append(answerCorrect);
+    
+    // if correct answer chosen
+    answerCorrect.addEventListener("click", () => {
+        questionOneContentEl.remove();
+        questionTwo();
+    });
+
+    // if incorrect answer chosen
+    answerWrong.addEventListener("click", () => {
+        wrongAnswer();
+        questionOneContentEl.remove();
+        questionTwo();
+    });
+};
+
+// question two function
+let questionTwo = function() {    
+    // create new div element, add id
+    let questionTwoContentEl = document.createElement("section");
+    questionTwoContentEl.id = "question-two-content"
+    document.body.append(questionTwoContentEl); 
+    
+    // adding h3 to new section element for T/F statement
+    let questionTwoHeader = document.createElement("h3");
+    questionTwoHeader.id = "question-header"
+    questionTwoHeader.textContent = "Which of the following will iterate a function over the length of an array named arrayName?"
+    questionTwoContentEl.append(questionTwoHeader);
+    
+    // adding possible answers beneath question
+    let answerWrong = document.createElement("button");
+    answerWrong.className = "btn wrong"
+    answerWrong.textContent = "for (i = 1, i < arrayName.length, i++)"
+    questionTwoContentEl.append(answerWrong);
+    
+    let answerCorrect = document.createElement("button");
+    answerCorrect.className = "btn"
+    answerCorrect.id = "answer-correct"
+    answerCorrect.textContent = "for (i = 0, i < arrayName.length, i++)"
+    questionTwoContentEl.append(answerCorrect);
+
+    let answerWrongTwo = document.createElement("button");
+    answerWrongTwo.className = "btn wrong"
+    answerWrongTwo.textContent = "for (i = 0, i < arrayName.length, i+)"
+    questionTwoContentEl.append(answerWrongTwo);
+ 
+    let answerWrongThree = document.createElement("button");
+    answerWrongThree.className = "btn wrong"
+    answerWrongThree.textContent = "for (i = 0, i < arrayName, i++)"
+    questionTwoContentEl.append(answerWrongThree);
+    
+    // if correct answer chosen
+    answerCorrect.addEventListener("click", () => {
+        questionTwoContentEl.remove();
+        questionThree();
+    });
+    
+    // if incorrect answers chosen
+    answerWrong.addEventListener("click", () => {
+        wrongAnswer();
+        questionTwoContentEl.remove();
+        questionThree();
+    });
+    answerWrongTwo.addEventListener("click", () => {
+        wrongAnswer();
+        questionTwoContentEl.remove();
+        questionThree();
+    });
+    answerWrongThree.addEventListener("click", () => {
+        wrongAnswer();
+        questionTwoContentEl.remove();
+        questionThree();
+    });
+};
+
+// question three function
+let questionThree = function() {    
+    // create new div element, add id
+    let questionThreeContentEl = document.createElement("section");
+    questionThreeContentEl.id = "question-three-content"
+    document.body.append(questionThreeContentEl); 
+    
+    // adding h3 to new section element for T/F statement
+    let questionThreeHeader = document.createElement("h3");
+    questionThreeHeader.id = "question-header"
+    questionThreeHeader.textContent = "Which of the following will iterate a function over the length of an array named arrayName?"
+    questionThreeContentEl.append(questionThreeHeader);
+    
+    // adding possible answers beneath question
+    let answerWrong = document.createElement("button");
+    answerWrong.className = "btn wrong"
+    answerWrong.textContent = "for (i = 1, i < arrayName.length, i++)"
+    questionTwoContentEl.append(answerWrong);
+    
+    let answerCorrect = document.createElement("button");
+    answerCorrect.className = "btn"
+    answerCorrect.id = "answer-correct"
+    answerCorrect.textContent = "for (i = 0, i < arrayName.length, i++)"
+    questionTwoContentEl.append(answerCorrect);
+    
+    // if correct answer chosen
+    answerCorrect.addEventListener("click", () => {
+        questionTwoContentEl.remove();
+        questionThree();
+    });
+    
+    // if incorrect answer chosen
+    answerWrong.addEventListener("click", () => {
+        wrongAnswer();
+        questionTwoContentEl.remove();
+        questionThree();
+    });
+};
 
 // if all questions are answered or timer <= 0, game ends
 
