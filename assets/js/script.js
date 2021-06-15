@@ -137,32 +137,54 @@ let questionThree = function() {
     // adding h3 to new section element for T/F statement
     let questionThreeHeader = document.createElement("h3");
     questionThreeHeader.id = "question-header"
-    questionThreeHeader.textContent = "Which of the following will iterate a function over the length of an array named arrayName?"
+    questionThreeHeader.textContent = "Which of the following will initiate a function helloAlert when a button with 'btn-id' is mouseover-ed?"
     questionThreeContentEl.append(questionThreeHeader);
     
     // adding possible answers beneath question
-    let answerWrong = document.createElement("button");
-    answerWrong.className = "btn wrong"
-    answerWrong.textContent = "for (i = 1, i < arrayName.length, i++)"
-    questionTwoContentEl.append(answerWrong);
-    
     let answerCorrect = document.createElement("button");
     answerCorrect.className = "btn"
     answerCorrect.id = "answer-correct"
-    answerCorrect.textContent = "for (i = 0, i < arrayName.length, i++)"
-    questionTwoContentEl.append(answerCorrect);
+    answerCorrect.setAttribute("style", "white-space: pre;");
+    answerCorrect.textContent = "let buttonEl = document.getElementById('btn-id'); \r\n";
+    answerCorrect.textContent += "buttonEl.addEventListener('mouseover', helloAlert);"
+    questionThreeContentEl.append(answerCorrect);
+    
+    let answerWrong = document.createElement("button");
+    answerWrong.className = "btn wrong"
+    answerWrong.textContent = "for (i = 1, i < arrayName.length, i++)"
+    questionThreeContentEl.append(answerWrong);
+
+    let answerWrongTwo = document.createElement("button");
+    answerWrongTwo.className = "btn wrong"
+    answerWrongTwo.textContent = "for (i = 0, i < arrayName.length, i+)"
+    questionThreeContentEl.append(answerWrongTwo);
+ 
+    let answerWrongThree = document.createElement("button");
+    answerWrongThree.className = "btn wrong"
+    answerWrongThree.textContent = "for (i = 0, i < arrayName, i++)"
+    questionThreeContentEl.append(answerWrongThree);
     
     // if correct answer chosen
     answerCorrect.addEventListener("click", () => {
-        questionTwoContentEl.remove();
-        questionThree();
+        questionThreeContentEl.remove();
+        questionFour();
     });
     
-    // if incorrect answer chosen
+    // if incorrect answers chosen
     answerWrong.addEventListener("click", () => {
         wrongAnswer();
-        questionTwoContentEl.remove();
-        questionThree();
+        questionThreeContentEl.remove();
+        questionFour();
+    });
+    answerWrongTwo.addEventListener("click", () => {
+        wrongAnswer();
+        questionThreeContentEl.remove();
+        questionFour();
+    });
+    answerWrongThree.addEventListener("click", () => {
+        wrongAnswer();
+        questionThreeContentEl.remove();
+        questionFour();
     });
 };
 
