@@ -1,4 +1,7 @@
 // function for countdown timer
+let timerContentEl = document.createElement("section");
+timerContentEl.id = "timer-content";
+document.body.append(timerContentEl);
 
 timerInitial = 60;
 let startTimer = function () {
@@ -13,13 +16,11 @@ let startTimer = function () {
 };
 
 // function to deduct time when wrong answer chosen
-
 let wrongAnswer = function() {
     timerInitial -= 10;
 };
 
 // functions to start quiz
-
 let startQuiz = function () {
     let pageContentEl = document.getElementById("page-content");
     pageContentEl.remove();
@@ -313,6 +314,40 @@ let questionFive = function() {
 };
 
 // if all questions are answered or timer <= 0, game ends
+
+let returnScore = function() {
+    // remove timer from page
+    document.getElementById("timer").remove();
+    
+    // save score from timer
+    let playerScore = timerInitial; 
+
+    // display score
+    // alert("Your final score was " + playerScore + "!");
+
+    // prompt user for initials
+    let alertBox = document.createElement("section")
+    alertBox.id = "alert-box"
+    document.body.append(alertBox);
+
+    let gameOverStatement = document.createElement("p")
+    gameOverStatement.textContent = "The quiz has ended! Your score was " + playerScore + ". Enter your initials to be included on the leaderboard."
+    document.body.append(gameOverStatement);
+
+    let playerInitialsForm = document.createElement("form")
+    document.body.append(playerInitialsForm)
+
+    let playerInitialsTextBox = document.createElement("input")
+    playerInitialsForm.append(playerInitialsTextBox);
+
+    // save initials and score to localStorage
+    localStorage.setItem(playerInitials, playerScore);
+
+    // display high scores on screen
+
+    // prompt user to take quiz again
+
+}
 
 // if score < 0, prompt to save initials and score
 
