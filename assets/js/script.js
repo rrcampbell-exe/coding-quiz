@@ -5,7 +5,7 @@ document.body.append(timerContentEl);
 
 timerInitial = 60;
 let startTimer = function () {
-    document.getElementById("timer").innerHTML = timerInitial;
+    document.getElementById("timer").innerHTML = "Timer: " + timerInitial;
     timerInitial--;
     if (timerInitial < 0) {
         alert("The timer has expired!")
@@ -338,7 +338,14 @@ let returnScore = function() {
     document.body.append(playerInitialsForm)
 
     let playerInitialsTextBox = document.createElement("input")
+    playerInitialsTextBox.setAttribute("type", "text");
     playerInitialsForm.append(playerInitialsTextBox);
+
+    let playerInitialsSubmitBtn = document.createElement("input")
+    playerInitialsSubmitBtn.setAttribute("type", "submit")
+    playerInitialsForm.append(playerInitialsSubmitBtn);
+
+    // addEventListener for click of submit button
 
     // save initials and score to localStorage
     localStorage.setItem(playerInitials, playerScore);
