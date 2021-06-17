@@ -3,11 +3,11 @@ let timerContentEl = document.createElement("section");
 timerContentEl.id = "timer-content";
 document.body.append(timerContentEl);
 
-timerInitial = 60;
+timer = 60;
 let startTimer = function () {
-    document.getElementById("timer").innerHTML = "Timer: " + timerInitial;
-    timerInitial--;
-    if (timerInitial < 0) {
+    document.getElementById("timer").innerHTML = "Timer: " + timer;
+    timer--;
+    if (timer < 0) {
         alert("The timer has expired!")
     }
     else {
@@ -16,8 +16,8 @@ let startTimer = function () {
 };
 
 // function to deduct time when wrong answer chosen
-let wrongAnswer = function() {
-    timerInitial -= 10;
+let wrongAnswer = function () {
+    timer -= 10;
 };
 
 // functions to start quiz
@@ -34,7 +34,7 @@ let questionOne = function () {
     // create new div element, add id
     let questionOneContentEl = document.createElement("section");
     questionOneContentEl.id = "question-one-content"
-    document.body.append(questionOneContentEl); 
+    document.body.append(questionOneContentEl);
 
     // adding h3 to new section element for T/F statement
     let questionOneHeader = document.createElement("h3");
@@ -48,13 +48,13 @@ let questionOne = function () {
     answerWrong.id = "answer-wrong"
     answerWrong.textContent = "True"
     questionOneContentEl.append(answerWrong);
-    
+
     let answerCorrect = document.createElement("button");
     answerCorrect.className = "btn"
     answerCorrect.id = "answer-correct"
     answerCorrect.textContent = "False"
     questionOneContentEl.append(answerCorrect);
-    
+
     // if correct answer chosen
     answerCorrect.addEventListener("click", () => {
         questionOneContentEl.remove();
@@ -70,24 +70,24 @@ let questionOne = function () {
 };
 
 // question two function
-let questionTwo = function() {    
+let questionTwo = function () {
     // create new div element, add id
     let questionTwoContentEl = document.createElement("section");
     questionTwoContentEl.id = "question-two-content"
-    document.body.append(questionTwoContentEl); 
-    
+    document.body.append(questionTwoContentEl);
+
     // adding h3 to new section element for T/F statement
     let questionTwoHeader = document.createElement("h3");
     questionTwoHeader.id = "question-header"
     questionTwoHeader.textContent = "Which of the following will iterate a function over the length of an array named arrayName?"
     questionTwoContentEl.append(questionTwoHeader);
-    
+
     // adding possible answers beneath question
     let answerWrong = document.createElement("button");
     answerWrong.className = "btn wrong"
     answerWrong.textContent = "for (i = 1, i < arrayName.length, i++)"
     questionTwoContentEl.append(answerWrong);
-    
+
     let answerCorrect = document.createElement("button");
     answerCorrect.className = "btn"
     answerCorrect.id = "answer-correct"
@@ -98,18 +98,18 @@ let questionTwo = function() {
     answerWrongTwo.className = "btn wrong"
     answerWrongTwo.textContent = "for (i = 0, i < arrayName.length, i+)"
     questionTwoContentEl.append(answerWrongTwo);
- 
+
     let answerWrongThree = document.createElement("button");
     answerWrongThree.className = "btn wrong"
     answerWrongThree.textContent = "for (i = 0, i < arrayName, i++)"
     questionTwoContentEl.append(answerWrongThree);
-    
+
     // if correct answer chosen
     answerCorrect.addEventListener("click", () => {
         questionTwoContentEl.remove();
         questionThree();
     });
-    
+
     // if incorrect answers chosen
     answerWrong.addEventListener("click", () => {
         wrongAnswer();
@@ -129,18 +129,18 @@ let questionTwo = function() {
 };
 
 // question three function
-let questionThree = function() {    
+let questionThree = function () {
     // create new div element, add id
     let questionThreeContentEl = document.createElement("section");
     questionThreeContentEl.id = "question-three-content"
-    document.body.append(questionThreeContentEl); 
-    
+    document.body.append(questionThreeContentEl);
+
     // adding h3 to new section element for T/F statement
     let questionThreeHeader = document.createElement("h3");
     questionThreeHeader.id = "question-header"
     questionThreeHeader.textContent = "Which of the following will initiate a function helloAlert when a button with 'btn-id' is mouseover-ed?"
     questionThreeContentEl.append(questionThreeHeader);
-    
+
     // adding possible answers beneath question
     let answerCorrect = document.createElement("button");
     answerCorrect.className = "btn"
@@ -149,7 +149,7 @@ let questionThree = function() {
     answerCorrect.textContent = "let buttonEl = document.getElementById('btn-id'); \r\n";
     answerCorrect.textContent += "buttonEl.addEventListener('mouseover', helloAlert);"
     questionThreeContentEl.append(answerCorrect);
-    
+
     let answerWrong = document.createElement("button");
     answerWrong.className = "btn wrong"
     answerWrong.setAttribute("style", "white-space: pre;");
@@ -163,20 +163,20 @@ let questionThree = function() {
     answerWrongTwo.textContent = "let buttonEl = document.getButtonByBtn-Id; \r\n"
     answerWrongTwo.textContent += "buttonEl.addEventListener('mouseover', helloAlert);"
     questionThreeContentEl.append(answerWrongTwo);
- 
+
     let answerWrongThree = document.createElement("button");
     answerWrongThree.className = "btn wrong"
     answerWrongThree.setAttribute("style", "white-space: pre;");
     answerWrongThree.textContent = "let buttonMouseoverEl = document.getElementById('btn-id'); \r\n"
     answerWrongThree.textContent += "buttonEl.addEventListener('mouseover', helloAlert);"
     questionThreeContentEl.append(answerWrongThree);
-    
+
     // if correct answer chosen
     answerCorrect.addEventListener("click", () => {
         questionThreeContentEl.remove();
         questionFour();
     });
-    
+
     // if incorrect answers chosen
     answerWrong.addEventListener("click", () => {
         wrongAnswer();
@@ -196,18 +196,18 @@ let questionThree = function() {
 };
 
 // question four function
-let questionFour = function() {    
+let questionFour = function () {
     // create new div element, add id
     let questionFourContentEl = document.createElement("section");
     questionFourContentEl.id = "question-four-content"
-    document.body.append(questionFourContentEl); 
-    
+    document.body.append(questionFourContentEl);
+
     // adding h3 to new section element for T/F statement
     let questionFourHeader = document.createElement("h3");
     questionFourHeader.id = "question-header"
     questionFourHeader.textContent = "Which of the following will add 'rutabaga' to an array named theseAreVegetables?"
     questionFourContentEl.append(questionFourHeader);
-    
+
     // adding possible answers beneath question
     let answerWrong = document.createElement("button");
     answerWrong.className = "btn wrong"
@@ -218,7 +218,7 @@ let questionFour = function() {
     answerWrongTwo.className = "btn wrong"
     answerWrongTwo.textContent = "theseAreVegetables.addString('rutabaga');"
     questionFourContentEl.append(answerWrongTwo);
- 
+
     let answerWrongThree = document.createElement("button");
     answerWrongThree.className = "btn wrong"
     answerWrongThree.textContent = "addToArray.theseAreVegetables('rutabaga');"
@@ -229,13 +229,13 @@ let questionFour = function() {
     answerCorrect.id = "answer-correct"
     answerCorrect.textContent = "theseAreVegetables.push('rutabaga');"
     questionFourContentEl.append(answerCorrect);
-    
+
     // if correct answer chosen
     answerCorrect.addEventListener("click", () => {
         questionFourContentEl.remove();
         questionFive();
     });
-    
+
     // if incorrect answers chosen
     answerWrong.addEventListener("click", () => {
         wrongAnswer();
@@ -255,18 +255,18 @@ let questionFour = function() {
 };
 
 // question five function
-let questionFive = function() {    
+let questionFive = function () {
     // create new div element, add id
     let questionFiveContentEl = document.createElement("section");
     questionFiveContentEl.id = "question-five-content"
-    document.body.append(questionFiveContentEl); 
-    
+    document.body.append(questionFiveContentEl);
+
     // adding h3 to new section element for T/F statement
     let questionFiveHeader = document.createElement("h3");
     questionFiveHeader.id = "question-header"
     questionFiveHeader.textContent = "To send an item to local storage, which of the following would be used?"
     questionFiveContentEl.append(questionFiveHeader);
-    
+
     // adding possible answers beneath question
     let answerWrong = document.createElement("button");
     answerWrong.className = "btn wrong"
@@ -283,18 +283,18 @@ let questionFive = function() {
     answerCorrect.id = "answer-correct"
     answerCorrect.textContent = "localStorage.setItem"
     questionFiveContentEl.append(answerCorrect);
- 
+
     let answerWrongThree = document.createElement("button");
     answerWrongThree.className = "btn wrong"
     answerWrongThree.textContent = "localStorage.saveItem"
     questionFiveContentEl.append(answerWrongThree);
-    
+
     // if correct answer chosen
     answerCorrect.addEventListener("click", () => {
         questionFiveContentEl.remove();
         returnScore();
     });
-    
+
     // if incorrect answers chosen
     answerWrong.addEventListener("click", () => {
         wrongAnswer();
@@ -315,15 +315,12 @@ let questionFive = function() {
 
 // if all questions are answered or timer <= 0, game ends
 
-let returnScore = function() {
+let returnScore = function () {
     // remove timer from page
     document.getElementById("timer").remove();
-    
-    // save score from timer
-    let playerScore = timerInitial; 
 
-    // display score
-    // alert("Your final score was " + playerScore + "!");
+    // save score from timer
+    let playerScore = timer;
 
     // prompt user for initials
     let alertBox = document.createElement("section")
@@ -332,37 +329,68 @@ let returnScore = function() {
 
     let gameOverStatement = document.createElement("p")
     gameOverStatement.textContent = "The quiz has ended! Your score was " + playerScore + ". Enter your initials to be included on the leaderboard."
-    document.body.append(gameOverStatement);
+    alertBox.append(gameOverStatement);
 
     let playerInitialsForm = document.createElement("form")
-    document.body.append(playerInitialsForm)
+    alertBox.append(playerInitialsForm)
 
     let playerInitialsTextBox = document.createElement("input")
     playerInitialsTextBox.setAttribute("type", "text");
-    playerInitialsForm.append(playerInitialsTextBox);
+    playerInitialsTextBox.id = "player-initials";
+    alertBox.append(playerInitialsTextBox);
 
     let playerInitialsSubmitBtn = document.createElement("input")
     playerInitialsSubmitBtn.setAttribute("type", "submit")
-    playerInitialsForm.append(playerInitialsSubmitBtn);
+    alertBox.append(playerInitialsSubmitBtn);
 
     // addEventListener for click of submit button
+    playerInitialsSubmitBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        let playerInitials = document.querySelector('#player-initials').value;
 
-    // save initials and score to localStorage
-    localStorage.setItem(playerInitials, playerScore);
+        if (playerInitials === "") {
+            alert("Initials cannot be blank!");
+        } else {
+            // save initials and score to localStorage, then remove content from screen and display high scores
+            localStorage.setItem("playerInitials", playerInitials);
+            localStorage.setItem("score", playerScore);
+            alertBox.remove();
+            displayScores();
+        }
+    })
+};
 
-    // display high scores on screen
+// display high scores on screen
+let displayScores = function () {
 
-    // prompt user to take quiz again
+let highScores = document.createElement("section");
+highScores.id = "high-scores"
+document.body.append(highScores);
 
-}
+let scoresHeader = document.createElement("h3");
+scoresHeader.textContent = "High Scores"
+highScores.append(scoresHeader);
 
-// if score < 0, prompt to save initials and score
+let scoresTable = document.createElement("table")
+highScores.append(scoresTable);
 
-// store score and initials in local storage, display high scores
+let tableRow = document.createElement("tr")
+scoresTable.append(tableRow);
+
+let tableHeaderPlayer = document.createElement("th")
+tableHeaderPlayer.textContent = "Player"
+tableRow.append(tableHeaderPlayer);
+
+let tableHeaderScore = document.createElement("th")
+tableHeaderScore.textContent = "Score"
+tableRow.append(tableHeaderScore);
+
 
 // prompt user to take quiz again
 
 // function to click start button and initiate quiz and timer
+
+}
 
 let startButtonEl = document.getElementById("start-btn");
 
