@@ -38,16 +38,16 @@ function runQuestions() {
     let currentQ = 0
     let questionHeader = document.createElement("h3");
     questionAreaContentEl.append(questionHeader)
-    
-    let choices = document.createElement("button");
-    choices.className = "btn"
-    questionAreaContentEl.append(choices);
+
+    let choicesButton = document.createElement("button");
+    choicesButton.className = "btn"
+    questionAreaContentEl.append(choicesButton);
     let choicesEl = document.querySelectorAll(".btn");
 
     function iterate() {
         questionHeader.textContent = questionData[currentQ].question
-        choicesEl.forEach((el, i) => {
-            el.textContent = questionData[currentQ].choices[i]
+        choicesEl.forEach((choicesButton, i) => {
+            choicesButton.textContent = questionData[currentQ].choices[i]
         })
     }
     choicesEl.forEach(el => {
@@ -82,7 +82,7 @@ let returnScore = function () {
     document.getElementById("question-area-content").remove();
 
     // save score from timer
-    let playerScore = timer;
+    let playerScore = timer
 
     // prompt user for initials
     let alertBox = document.createElement("section")
@@ -125,32 +125,36 @@ let returnScore = function () {
 // display high scores on screen
 let displayScores = function () {
 
-let highScores = document.createElement("section");
-highScores.id = "high-scores"
-document.body.append(highScores);
+    let highScores = document.createElement("section");
+    highScores.id = "high-scores"
+    document.body.append(highScores);
 
-let scoresHeader = document.createElement("h3");
-scoresHeader.textContent = "High Scores"
-highScores.append(scoresHeader);
+    let scoresHeader = document.createElement("h3");
+    scoresHeader.textContent = "High Scores"
+    highScores.append(scoresHeader);
 
-let scoresTable = document.createElement("table")
-highScores.append(scoresTable);
+    let scoresTable = document.createElement("table")
+    scoresTable.id = "table"
+    highScores.append(scoresTable);
 
-let tableRow = document.createElement("tr")
-scoresTable.append(tableRow);
+    let tableRow = document.createElement("tr")
+    scoresTable.append(tableRow);
 
-let tableHeaderPlayer = document.createElement("th")
-tableHeaderPlayer.textContent = "Player"
-tableRow.append(tableHeaderPlayer);
+    let tableHeaderPlayer = document.createElement("th")
+    tableHeaderPlayer.textContent = "Player"
+    tableRow.append(tableHeaderPlayer);
 
-let tableHeaderScore = document.createElement("th")
-tableHeaderScore.textContent = "Score"
-tableRow.append(tableHeaderScore);
+    let tableHeaderScore = document.createElement("th")
+    tableHeaderScore.textContent = "Score"
+    tableRow.append(tableHeaderScore);
 
+    // prompt user to take quiz again
+    let startButtonEl = document.createElement("button")
+    startButtonEl.textContent = "Restart the quiz!"
+    startButtonEl.id = "start-btn"
+    highScores.append(startButtonEl);
 
-// prompt user to take quiz again
-
-// function to click start button and initiate quiz and timer
+    // function to click start button and initiate quiz and timer
 
 }
 
