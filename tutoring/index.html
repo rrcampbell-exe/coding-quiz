@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doc</title>
+</head>
+<body>
+    <button class="btn">Button</button>
+    <button class="btn">Booton</button>
+    <script>
+        let arr = [
+            {
+                choices: ["Jerry", "Perry"],
+                answer: "Perry"
+            },
+            {
+                choices: ["Terry", "Bogard"],
+                answer: "Terry"
+            },
+            {
+                choices: ["Bloodborne", "Elden Ring"],
+                answer: "Bloodborne"
+            },
+        ]
+
+        let currentQ = 0
+        let buttonsEl = document.querySelectorAll(".btn")
+        
+        function itterate(){
+            buttonsEl.forEach((el, i) => {
+                el.textContent = arr[currentQ].choices[i]
+            })
+        }
+
+        buttonsEl.forEach(el => {
+            el.addEventListener("click", function(event) {
+                console.log(event.target.textContent)
+                let choice = this.textContent
+                console.log(choice)
+                if(choice == arr[currentQ].answer){
+                    console.log('correct')
+                }else {
+                    console.log('incorrect')
+                    return
+                }
+
+                currentQ++;
+                if(currentQ < arr.length){
+                    itterate()
+                }
+            })
+        })
+
+        itterate()
+    </script>
+    <!-- <script src="./index.js"></script> -->
+</body>
+</html>
