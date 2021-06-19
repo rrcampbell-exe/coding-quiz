@@ -9,9 +9,9 @@ let questionData = [{
     answer: "for (i = 0, i < arrayName.length, i++)"
 },
 {
-    question: "Which of the following will initiate a function helloAlert when a button with 'btn-id' is mouseover-ed?",
-    choices: ["let buttonEl = document.getElementById('btn-id'); buttonEl.addEventListener('mouseover', helloAlert);", "let buttonEl = document.getElementById('btn-id'); buttonEl.addEventListener('click', helloAlert);", "let buttonEl = document.getButtonByBtn-Id; buttonEl.addEventListener('mouseover', helloAlert);", "let buttonMouseoverEl = document.getElementById('btn-id'); buttonEl.addEventListener('mouseover', helloAlert);"],
-    answer: "let buttonEl = document.getElementById('btn-id'); buttonEl.addEventListener('mouseover', helloAlert);"
+    question: "Which of the following are commonly used alongside vanilla JavaScript?",
+    choices: ["jQuery", "Moment.js", "jQuery UI", "All of the above."],
+    answer: "All of the above."
 },
 {
     question: "Which of the following will add 'rutabaga' to an array named theseAreVegetables?",
