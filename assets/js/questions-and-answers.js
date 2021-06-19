@@ -1,7 +1,7 @@
 let questionData = [{
-    question: "True or false: JavaScript and Java are the same thing.",
-    choices: ["True", "False"],
-    answer: "False"
+    question: "Given it were preceded by a variable declaration, which of the following would create a new button?",
+    choices: ['document.newElement("button")', 'document.createElement("button")', 'document.addButton', 'This is not possible to do with JavaScript.'],
+    answer: 'document.createElement("button")'
 },
 {
     question: "Which of the following will iterate a function over the length of an array named arrayName?",

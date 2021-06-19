@@ -38,16 +38,31 @@ function runQuestions() {
     let currentQ = 0
     let questionHeader = document.createElement("h3");
     questionAreaContentEl.append(questionHeader)
+    
+    let createButtons = function() { 
+        for(i = 0; i < questionData[currentQ].choices.length; i++) {
+          var button = document.createElement("button");
+          button.className = "btn"
+          questionAreaContentEl.append(button);
+        }
+      }
+      createButtons();
 
-    let choicesButton = document.createElement("button");
-    choicesButton.className = "btn"
-    questionAreaContentEl.append(choicesButton);
-    let choicesEl = document.querySelectorAll(".btn");
+      let choicesEl = document.querySelectorAll(".btn");
+
+    // let buttonCreate = function () {
+    //     choicesButton.forEach(questionData[currentQ].choices => document.createElement("button"));
+    //     buttonCreate.className = "btn"
+    //     questionAreaContentEl.append(buttonCreate);
+    // }
 
     function iterate() {
         questionHeader.textContent = questionData[currentQ].question
+        console.log(choicesEl);
         choicesEl.forEach((choicesButton, i) => {
             choicesButton.textContent = questionData[currentQ].choices[i]
+            console.log(questionData[currentQ].choices[i])
+            console.log(choicesButton);
         })
     }
     choicesEl.forEach(el => {
