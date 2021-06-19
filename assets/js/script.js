@@ -50,12 +50,6 @@ function runQuestions() {
 
       let choicesEl = document.querySelectorAll(".btn");
 
-    // let buttonCreate = function () {
-    //     choicesButton.forEach(questionData[currentQ].choices => document.createElement("button"));
-    //     buttonCreate.className = "btn"
-    //     questionAreaContentEl.append(buttonCreate);
-    // }
-
     function iterate() {
         questionHeader.textContent = questionData[currentQ].question
         console.log(choicesEl);
