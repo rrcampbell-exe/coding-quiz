@@ -3,7 +3,7 @@ let timerContentEl = document.createElement("section");
 timerContentEl.id = "timer-content";
 document.body.append(timerContentEl);
 
-timer = 60;
+timer = 70;
 let startTimer = function () {
     document.getElementById("timer").innerHTML = "Timer: " + timer;
     timer--;
