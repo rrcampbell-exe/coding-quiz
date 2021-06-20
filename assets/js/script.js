@@ -159,7 +159,6 @@ let displayScores = function () {
 
     // function to click start button and initiate quiz and timer
     restartButtonEl.addEventListener("click", () => {
-        document.getElementById("timer").remove();
         let timerCreate = document.createElement("h2");
         timerCreate.id = "timer"
         timer = 70
