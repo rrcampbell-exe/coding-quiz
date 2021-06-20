@@ -59,12 +59,12 @@ function runQuestions() {
             if (choice === questionData[currentQ].answer) {
                 let correctAnswer = document.createElement("h3")
                 correctAnswer.textContent = "Correct!"
-                $(correctAnswer).delay(500).fadeOut(500);
+                $(correctAnswer).delay(200).fadeOut(500);
                 document.body.append(correctAnswer)
             } else {
                 let incorrectAnswer = document.createElement("h3")
                 incorrectAnswer.textContent = "Incorrect!"
-                $(incorrectAnswer).delay(500).fadeOut(500);
+                $(incorrectAnswer).delay(200).fadeOut(500);
                 document.body.append(incorrectAnswer)
                 wrongAnswer();
             }
@@ -73,7 +73,7 @@ function runQuestions() {
             if (currentQ < questionData.length) {
                 iterate()
             } else {
-                returnScore();
+                setTimeout(returnScore, 1000);
             }
         }
         );
