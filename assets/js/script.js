@@ -1,8 +1,3 @@
-// function for countdown timer
-let timerContentEl = document.createElement("section");
-timerContentEl.id = "timer-content";
-document.body.append(timerContentEl);
-
 timer = 70;
 let startTimer = function () {
     document.getElementById("timer").innerHTML = "Timer: " + timer;
@@ -135,7 +130,7 @@ let returnScore = function () {
 let displayScores = function () {
 
     let highScores = document.createElement("section");
-    highScores.id = "high-scores"
+    highScores.id = "page-content"
     document.body.append(highScores);
 
     let scoresHeader = document.createElement("h3");
@@ -158,12 +153,21 @@ let displayScores = function () {
     tableRow.append(tableHeaderScore);
 
     // prompt user to take quiz again
-    let startButtonEl = document.createElement("button")
-    startButtonEl.textContent = "Restart the quiz!"
-    startButtonEl.id = "start-btn"
-    highScores.append(startButtonEl);
+    let restartButtonEl = document.createElement("button")
+    restartButtonEl.textContent = "Restart the quiz!"
+    restartButtonEl.id = "start-btn"
+    highScores.append(restartButtonEl);
 
     // function to click start button and initiate quiz and timer
+    restartButtonEl.addEventListener("click", () => {
+        // highScores.remove();
+        let timerCreate = document.createElement("h2");
+        timerCreate.id = "timer"
+        timer = 70
+        header.append(timerCreate);
+        startTimer();
+        startQuiz();
+});
 
 }
 

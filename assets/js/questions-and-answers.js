@@ -23,18 +23,3 @@ let questionData = [{
     choices: ["localStorage.getItem", "saveItem.localStorage", "localStorage.setItem", "localStorage.saveItem"],
     answer: "localStorage.setItem"
 }]
-
-
-// First Point - Array of Objects
-
-// let questionData = [{
-//     question: "True or false: JavaScript and Java are the same thing.",
-//     answers: ["True", "False"],
-
-// }]
-
-// Second Point - Control the Index of the Question, go to i++ on click on any button
-
-// Third Point - For length of answers, build buttons
-
-// Fourth Point = "This" (the event that was listened to, or classes)
