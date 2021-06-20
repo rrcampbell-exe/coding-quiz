@@ -94,14 +94,14 @@ input {
     padding: 10px;
 }
 
-#table, td, th {
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #f7f7f7;
+ol {
+    margin: 10px auto 20px auto;
+    text-align: center;
+    list-style: none;
 }
 
-td {
-    text-align:center;
+ol li {
+    font-size: 26px;
 }
 
 /* Media Queries */

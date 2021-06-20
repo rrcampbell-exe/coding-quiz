@@ -4,6 +4,8 @@ let startTimer = function () {
     timer--;
     if (timer < 0) {
         alert("The timer has expired!")
+        document.getElementById("question-area-content").remove();
+        displayScores();
     }
     else {
         setTimeout(startTimer, 1000);
@@ -47,11 +49,8 @@ function runQuestions() {
 
     function iterate() {
         questionHeader.textContent = questionData[currentQ].question
-        console.log(choicesEl);
         choicesEl.forEach((choicesButton, i) => {
             choicesButton.textContent = questionData[currentQ].choices[i]
-            console.log(questionData[currentQ].choices[i])
-            console.log(choicesButton);
         })
     }
     choicesEl.forEach(el => {
@@ -133,34 +132,18 @@ let displayScores = function () {
     highScores.id = "page-content"
     document.body.append(highScores);
 
-    let scoresHeader = document.createElement("h3");
+    let scoresHeader = document.createElement("h2");
     scoresHeader.textContent = "High Scores"
     highScores.append(scoresHeader);
 
-    // create table to display high scores
-    let scoresTable = document.createElement("table")
-    scoresTable.id = "table"
-    highScores.append(scoresTable);
+    // create list to display high scores
+    let scoresList = document.createElement("ol")
+    scoresList.id = "scoresList"
+    highScores.append(scoresList);
 
-    let tableRow = document.createElement("tr")
-    scoresTable.append(tableRow);
-
-    let tableHeaderPlayer = document.createElement("th")
-    tableHeaderPlayer.textContent = "Player"
-    tableRow.append(tableHeaderPlayer);
-
-    let tableHeaderScore = document.createElement("th")
-    tableHeaderScore.textContent = "Score"
-    tableRow.append(tableHeaderScore);
-
-    // get high score from local storage, display on screen
-    let tablePlayerName = document.createElement("td")
-    tablePlayerName.textContent = localStorage.getItem("playerInitials");
-    tableHeaderPlayer.append(tablePlayerName);
-    
-    let tablePlayerScore = document.createElement("td")
-    tablePlayerScore.textContent = localStorage.getItem("score");
-    tableHeaderScore.append(tablePlayerScore);
+    let scoreItem = document.createElement("li")
+    scoreItem.textContent = (localStorage.getItem("playerInitials") + " " + localStorage.getItem("score"));
+    scoresList.append(scoreItem);
 
     // prompt user to take quiz again
     let restartButtonEl = document.createElement("button")
@@ -170,7 +153,7 @@ let displayScores = function () {
 
     // function to click start button and initiate quiz and timer
     restartButtonEl.addEventListener("click", () => {
-        // highScores.remove();
+        document.getElementById("timer").remove();
         let timerCreate = document.createElement("h2");
         timerCreate.id = "timer"
         timer = 70
@@ -181,8 +164,8 @@ let displayScores = function () {
 
 }
 
+// Function to start quiz on click
 let startButtonEl = document.getElementById("start-btn");
-
 startButtonEl.addEventListener("click", () => {
     startTimer();
     startQuiz();
