@@ -35,17 +35,17 @@ function runQuestions() {
     let currentQ = 0
     let questionHeader = document.createElement("h3");
     questionAreaContentEl.append(questionHeader)
-    
-    let createButtons = function() { 
-        for(i = 0; i < questionData[currentQ].choices.length; i++) {
-          var button = document.createElement("button");
-          button.className = "btn"
-          questionAreaContentEl.append(button);
-        }
-      }
-      createButtons();
 
-      let choicesEl = document.querySelectorAll(".btn");
+    let createButtons = function () {
+        for (i = 0; i < questionData[currentQ].choices.length; i++) {
+            var button = document.createElement("button");
+            button.className = "btn"
+            questionAreaContentEl.append(button);
+        }
+    }
+    createButtons();
+
+    let choicesEl = document.querySelectorAll(".btn");
 
     function iterate() {
         questionHeader.textContent = questionData[currentQ].question
@@ -112,6 +112,7 @@ let returnScore = function () {
 
     let playerInitialsSubmitBtn = document.createElement("input")
     playerInitialsSubmitBtn.setAttribute("type", "submit")
+    playerInitialsSubmitBtn.id = "submit-btn"
     alertBox.append(playerInitialsSubmitBtn);
 
     // addEventListener for click of submit button
@@ -165,7 +166,7 @@ let displayScores = function () {
         header.append(timerCreate);
         startTimer();
         startQuiz();
-});
+    });
 
 }
 
