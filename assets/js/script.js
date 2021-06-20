@@ -137,6 +137,7 @@ let displayScores = function () {
     scoresHeader.textContent = "High Scores"
     highScores.append(scoresHeader);
 
+    // create table to display high scores
     let scoresTable = document.createElement("table")
     scoresTable.id = "table"
     highScores.append(scoresTable);
@@ -151,6 +152,15 @@ let displayScores = function () {
     let tableHeaderScore = document.createElement("th")
     tableHeaderScore.textContent = "Score"
     tableRow.append(tableHeaderScore);
+
+    // get high score from local storage, display on screen
+    let tablePlayerName = document.createElement("td")
+    tablePlayerName.textContent = localStorage.getItem("playerInitials");
+    tableHeaderPlayer.append(tablePlayerName);
+    
+    let tablePlayerScore = document.createElement("td")
+    tablePlayerScore.textContent = localStorage.getItem("score");
+    tableHeaderScore.append(tablePlayerScore);
 
     // prompt user to take quiz again
     let restartButtonEl = document.createElement("button")
