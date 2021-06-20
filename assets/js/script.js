@@ -57,9 +57,15 @@ function runQuestions() {
         el.addEventListener("click", function (event) {
             let choice = this.textContent
             if (choice === questionData[currentQ].answer) {
-                console.log("Correct!")
+                let correctAnswer = document.createElement("h3")
+                correctAnswer.textContent = "Correct!"
+                $(correctAnswer).delay(500).fadeOut(500);
+                document.body.append(correctAnswer)
             } else {
-                console.log("Incorrect")
+                let incorrectAnswer = document.createElement("h3")
+                incorrectAnswer.textContent = "Incorrect!"
+                $(incorrectAnswer).delay(500).fadeOut(500);
+                document.body.append(incorrectAnswer)
                 wrongAnswer();
             }
 
