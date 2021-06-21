@@ -38,7 +38,7 @@ function runQuestions() {
 
     let createButtons = function () {
         for (i = 0; i < questionData[currentQ].choices.length; i++) {
-            var button = document.createElement("button");
+            let button = document.createElement("button");
             button.className = "btn"
             questionAreaContentEl.append(button);
         }
@@ -124,8 +124,12 @@ let returnScore = function () {
             alert("Initials cannot be blank!");
         } else {
             // save initials and score to localStorage, then remove content from screen and display high scores
-            localStorage.setItem("playerInitials", playerInitials);
-            localStorage.setItem("score", playerScore);
+            scoresArr.push(playerInitials);
+            scoresArr.push(playerScore);
+            console.log(scoresArr);
+            localStorage.setItem("high-scores", JSON.stringify(scoresArr));
+            // localStorage.setItem("playerInitials", playerInitials);
+            // localStorage.setItem("score", playerScore);
             alertBox.remove();
             displayScores();
         }
@@ -148,9 +152,17 @@ let displayScores = function () {
     scoresList.id = "scoresList"
     highScores.append(scoresList);
 
-    let scoreItem = document.createElement("li")
-    scoreItem.textContent = (localStorage.getItem("playerInitials") + " " + localStorage.getItem("score"));
-    scoresList.append(scoreItem);
+    let addScores = function () {
+        for (i = 0; i < 3; i++) {
+            let scoreItem = document.createElement("li");
+            scoresArr = JSON.parse(scoresArr)
+            scoreItem.textContent = (localStorage.getItem("high-scores"));
+            scoresList.append(scoreItem);
+        }
+    }
+    addScores();
+    
+    // scoreItem.textContent = (localStorage.getItem("playerInitials") + " " + localStorage.getItem("score"));
 
     // prompt user to take quiz again
     let restartButtonEl = document.createElement("button")

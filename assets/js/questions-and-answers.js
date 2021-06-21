@@ -23,3 +23,5 @@ let questionData = [{
     choices: ["localStorage.getItem", "saveItem.localStorage", "localStorage.setItem", "localStorage.saveItem"],
     answer: "localStorage.setItem"
 }]
+
+scoresArr = []
