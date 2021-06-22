@@ -124,12 +124,24 @@ let returnScore = function () {
             alert("Initials cannot be blank!");
         } else {
             // save initials and score to localStorage, then remove content from screen and display high scores
-            scoresArr.push(playerInitials);
-            scoresArr.push(playerScore);
-            console.log(scoresArr);
-            localStorage.setItem("high-scores", JSON.stringify(scoresArr));
-            // localStorage.setItem("playerInitials", playerInitials);
-            // localStorage.setItem("score", playerScore);
+            // scoresArr.push(playerInitials);
+            // scoresArr.push(playerScore);
+            // console.log(scoresArr);
+            // localStorage.setItem("high-scores", JSON.stringify(scoresArr));
+
+            let obj = {
+                player: playerInitials,
+                score: playerScore
+            }
+
+            if(localStorage.getItem("scoreTable")){
+                scoresArr = JSON.parse(localStorage.getItem("scoreTable"))
+            }
+            scoresArr.push(obj)
+
+            localStorage.setItem("scoreTable", JSON.stringify(scoresArr))
+            localStorage.setItem("playerInitials", playerInitials);
+            localStorage.setItem("score", playerScore);
             alertBox.remove();
             displayScores();
         }
@@ -153,16 +165,26 @@ let displayScores = function () {
     highScores.append(scoresList);
 
     let addScores = function () {
+        let scoreScrnObj = JSON.parse(localStorage.getItem("scoreTable"))
+        scoreScrnObj.sort((a, b) => b.score - a.score);
+
+        console.log(scoreScrnObj)
         for (i = 0; i < 3; i++) {
             let scoreItem = document.createElement("li");
-            scoresArr = JSON.parse(scoresArr)
-            scoreItem.textContent = (localStorage.getItem("high-scores"));
+            // scoresArr = JSON.parse(scoresArr)
+            // scoreItem.textContent = (localStorage.getItem("high-scores"));
+            // if(scoreScrnObj[i]){
+            //     scoreItem.textContent = (scoreScrnObj[i].player + " " + scoreScrnObj[i].score);
+            // }else {
+            //     scoreItem.textContent = ""
+            // }
+
+            scoreScrnObj[i] ? scoreItem.textContent = (scoreScrnObj[i].player + " " + scoreScrnObj[i].score) : scoreItem.textContent = "";
+
             scoresList.append(scoreItem);
         }
     }
     addScores();
-    
-    // scoreItem.textContent = (localStorage.getItem("playerInitials") + " " + localStorage.getItem("score"));
 
     // prompt user to take quiz again
     let restartButtonEl = document.createElement("button")
