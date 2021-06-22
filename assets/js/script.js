@@ -209,14 +209,6 @@ let displayScores = function () {
 
 }
 
-// Function to display high scores on click
-let scoreButtonEl = document.getElementById("high-scores-btn");
-scoreButtonEl.addEventListener("click", () => {
-    let pageContentEl = document.getElementById("page-content");
-    pageContentEl.remove();
-    displayScores();
-});
-
 // Function to start quiz on click
 let startButtonEl = document.getElementById("start-btn");
 startButtonEl.addEventListener("click", () => {
