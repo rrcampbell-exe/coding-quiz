@@ -176,11 +176,27 @@ let displayScores = function () {
     addScores();
 
     // prompt user to take quiz again
-    let restartButtonEl = document.createElement("button")
-    restartButtonEl.textContent = "Restart the quiz!"
-    restartButtonEl.id = "start-btn"
-    highScores.append(restartButtonEl);
+    let buttonsDiv = document.createElement("div")
+    buttonsDiv.className = "button-container"
+    highScores.append(buttonsDiv);
 
+    let restartButtonEl = document.createElement("button")
+    restartButtonEl.textContent = "Start the Quiz!"
+    restartButtonEl.id = "restart-btn"
+    buttonsDiv.append(restartButtonEl);
+    
+    let clearScoresEl = document.createElement("button")
+    clearScoresEl.textContent = "Clear High Scores"
+    clearScoresEl.id = "clear-scores-btn"
+    buttonsDiv.append(clearScoresEl);
+
+    // function to clear high scores
+    clearScoresEl.addEventListener("click", () => {
+        localStorage.clear();
+        scoresList.remove();
+        clearScoresEl.remove();
+    });
+    
     // function to click start button and initiate quiz and timer
     restartButtonEl.addEventListener("click", () => {
         let timerCreate = document.createElement("h2");
@@ -192,6 +208,14 @@ let displayScores = function () {
     });
 
 }
+
+// Function to display high scores on click
+let scoreButtonEl = document.getElementById("high-scores-btn");
+scoreButtonEl.addEventListener("click", () => {
+    let pageContentEl = document.getElementById("page-content");
+    pageContentEl.remove();
+    displayScores();
+});
 
 // Function to start quiz on click
 let startButtonEl = document.getElementById("start-btn");

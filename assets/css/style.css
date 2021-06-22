@@ -59,11 +59,20 @@ p {
     margin: 10px;
 }
 
-#start-btn {
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container button {
+    margin: 10px 5px;
+}
+
+/* #restart-btn {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 /* Questions-on-Page, High Scores Formatting */
 
