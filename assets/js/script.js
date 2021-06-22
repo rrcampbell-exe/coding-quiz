@@ -99,7 +99,7 @@ let returnScore = function () {
     document.body.append(alertBox);
 
     let gameOverStatement = document.createElement("p")
-    gameOverStatement.textContent = "The quiz has ended! Your score was " + playerScore + ". Enter your initials to be included on the leaderboard."
+    gameOverStatement.textContent = "The quiz has ended! Your score was " + playerScore + ". Enter your initials to see if you made the leaderboard."
     alertBox.append(gameOverStatement);
 
     let playerInitialsForm = document.createElement("form")
@@ -124,11 +124,6 @@ let returnScore = function () {
             alert("Initials cannot be blank!");
         } else {
             // save initials and score to localStorage, then remove content from screen and display high scores
-            // scoresArr.push(playerInitials);
-            // scoresArr.push(playerScore);
-            // console.log(scoresArr);
-            // localStorage.setItem("high-scores", JSON.stringify(scoresArr));
-
             let obj = {
                 player: playerInitials,
                 score: playerScore
@@ -168,19 +163,13 @@ let displayScores = function () {
         let scoreScrnObj = JSON.parse(localStorage.getItem("scoreTable"))
         scoreScrnObj.sort((a, b) => b.score - a.score);
 
-        console.log(scoreScrnObj)
         for (i = 0; i < 3; i++) {
             let scoreItem = document.createElement("li");
-            // scoresArr = JSON.parse(scoresArr)
-            // scoreItem.textContent = (localStorage.getItem("high-scores"));
-            // if(scoreScrnObj[i]){
-            //     scoreItem.textContent = (scoreScrnObj[i].player + " " + scoreScrnObj[i].score);
-            // }else {
-            //     scoreItem.textContent = ""
-            // }
-
-            scoreScrnObj[i] ? scoreItem.textContent = (scoreScrnObj[i].player + " " + scoreScrnObj[i].score) : scoreItem.textContent = "";
-
+            if (scoreScrnObj[i]){
+                scoreItem.textContent = (scoreScrnObj[i].player + " " + scoreScrnObj[i].score);
+            } else {
+                scoreItem.textContent = ""
+            }
             scoresList.append(scoreItem);
         }
     }
